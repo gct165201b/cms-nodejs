@@ -1,7 +1,7 @@
 // Select the container
-var container = document.querySelector('.container');
+var container = document.querySelector('#post-container');
 
-
+// console.log(container);
 
 // Make a Get Request for posts against this URL
 
@@ -27,7 +27,7 @@ function listAllPosts() {
                 var authorElement = document.createElement('h5');
                 var contentElement = document.createElement('p');
                 var postImageElement = document.createElement('img');
-                postImageElement.classList.add('img-responsive');
+                
 
                 var postCommentCountElement = document.createElement('small');
 
@@ -36,7 +36,10 @@ function listAllPosts() {
                 title.textContent = rec.post_title;
                 authorElement.textContent = rec.post_author;
                 dateElement.textContent = new Date(rec.post_date);
+                postImageElement.classList.add('img-fluid');
                 postImageElement.src = 'imgs/' + rec.post_image;
+                
+
                 contentElement.textContent = rec.post_content;
                 postCommentCountElement.textContent = rec.post_comment_count;
 
