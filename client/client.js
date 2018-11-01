@@ -17,7 +17,40 @@ function listAllPosts() {
     fetch(URL)
     .then(response => response.json())
     .then(result => {
-        console.log(result);
+        result.forEach(rec => {
+                var postCat = document.createElement('a');
+                postCat.href = "index.html?cat_id" + rec.cat_id;
+
+                var postElement = document.createElement('div');
+                var title = document.createElement('h3');
+                var dateElement = document.createElement('small');
+                var authorElement = document.createElement('h5');
+                var contentElement = document.createElement('p');
+                var postImageElement = document.createElement('img');
+                postImageElement.classList.add('img-responsive');
+
+                var postCommentCountElement = document.createElement('small');
+
+
+                postCat.text = rec.cat_title;
+                title.textContent = rec.post_title;
+                authorElement.textContent = rec.post_author;
+                dateElement.textContent = new Date(rec.post_date);
+                postImageElement.src = 'imgs/' + rec.post_image;
+                contentElement.textContent = rec.post_content;
+                postCommentCountElement.textContent = rec.post_comment_count;
+
+                postElement.appendChild(postCat);
+                postElement.appendChild(title);
+                postElement.appendChild(authorElement);
+                postElement.appendChild(dateElement);
+                postElement.appendChild(postImageElement);
+                postElement.appendChild(postCommentCountElement);
+                postElement.appendChild(contentElement);
+
+                container.appendChild(postElement);
+                container.appendChild(document.createElement('hr'));
+        });
     });
 
 
