@@ -3,6 +3,28 @@ var container = document.querySelector('.container');
 
 
 
+// Make a Get Request for posts against this URL
+
+const URL = 'http://localhost:5000';
+
+
+// Function that will list all posts in page
+listAllPosts();
+function listAllPosts() {
+
+    // make a get request
+
+    fetch(URL)
+    .then(response => response.json())
+    .then(result => {
+        console.log(result);
+    });
+
+
+}
+
+
+
 // for(var i = 0 ; i < posts.length ; i++) {
 //     var postElement = document.createElement('div');
 //     var header = document.createElement('h3');
