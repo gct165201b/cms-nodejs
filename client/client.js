@@ -8,6 +8,18 @@ var container = document.querySelector('#post-container');
 const URL = 'http://localhost:5000';
 
 
+
+// list all the categories inside the navbar
+
+
+listAllCategories();
+
+
+function listAllCategories() {
+    
+}
+
+
 // Function that will list all posts in page
 listAllPosts();
 function listAllPosts() {
