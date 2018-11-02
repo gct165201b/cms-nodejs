@@ -1,7 +1,11 @@
 // Select the container
 var container = document.querySelector('#post-container');
 
-// console.log(container);
+
+// select the navbar-nav
+var navbarNav = document.querySelector('#navbar');
+
+// console.log(navbarNav);
 
 // Make a Get Request for posts against this URL
 
@@ -16,7 +20,14 @@ listAllCategories();
 
 
 function listAllCategories() {
-    
+    fetch(URL + '/nav')
+    .then(response => response.json())
+    .then(result => {
+        result.forEach(cat => {
+            // console.log(cat);s
+            createListElement(cat);
+        });
+    });
 }
 
 
@@ -39,12 +50,30 @@ function listAllPosts() {
 
 
 
+// Create List Element for the navigation menu.
+// <li><a href='category.html?category=$cat_id'></a></li>
+
+function createListElement(cat) {
+    var li = document.createElement('li');
+    var a = document.createElement('a');
+    a.href = URL;
+    a.text = cat.cat_title;
+
+
+    li.appendChild(a);
+
+    navbarNav.appendChild(li);
+
+
+}
+
+
 // createPostElement(record) will create and append the post data
 
 
 function createPostElement(rec) {
     var postCat = document.createElement('a');
-    postCat.href = "index.html?cat_id" + rec.cat_id;
+    postCat.href = "index.html?cat_id=" + rec.cat_id;
 
     var postElement = document.createElement('div');
     var title = document.createElement('h3');

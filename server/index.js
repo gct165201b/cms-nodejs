@@ -30,10 +30,7 @@ app.use(express.json());
 // listen for get request for posts
 
 app.get('/', (req, res) => {
-    // Connect to database.
     
-
-
     // Query the database.
 
     var sql = "SELECT * FROM posts JOIN categories ON posts.post_category_id = cat_id";
@@ -50,6 +47,23 @@ app.get('/', (req, res) => {
     
 
 });
+
+
+
+// listen for get request on /nav route.
+
+app.get('/nav', (req, res) => {
+    var sql = "SELECT * FROM categories";
+    database.query(sql, (err, result) => {
+        if(err) throw err;
+        
+        console.log(result);
+        res.json(result);
+    });
+});
+
+
+
 
 
 // listen for requests at port 5000
