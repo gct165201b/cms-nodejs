@@ -3,7 +3,7 @@ var container = document.querySelector('#post-container');
 
 
 // select the navbar-nav
-var navbarNav = document.querySelector('#navbar');
+var navbarNav = document.querySelector('#navigation');
 
 // console.log(navbarNav);
 
@@ -54,16 +54,20 @@ function listAllPosts() {
 // <li><a href='category.html?category=$cat_id'></a></li>
 
 function createListElement(cat) {
+
     var li = document.createElement('li');
+    li.classList.add('nav-item');
+
+    // create the link
     var a = document.createElement('a');
-    a.href = URL;
+    a.classList.add('nav-link');
     a.text = cat.cat_title;
+    a.href = '#';
 
 
     li.appendChild(a);
 
     navbarNav.appendChild(li);
-
 
 }
 

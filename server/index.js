@@ -33,7 +33,7 @@ app.get('/', (req, res) => {
     
     // Query the database.
 
-    var sql = "SELECT * FROM posts JOIN categories ON posts.post_category_id = cat_id";
+    var sql = "SELECT * FROM posts JOIN categories ON posts.post_category_id = cat_id ORDER BY post_id DESC";
 
     database.query(sql, (err, result) => {
         if(err) throw err;
