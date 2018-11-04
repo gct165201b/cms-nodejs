@@ -57,7 +57,7 @@ app.get('/nav', (req, res) => {
     database.query(sql, (err, result) => {
         if(err) throw err;
         
-        console.log(result);
+        // console.log(result);
         res.json(result);
     });
 });
