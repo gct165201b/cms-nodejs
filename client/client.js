@@ -76,59 +76,117 @@ function createListElement(cat) {
 
 
 function createPostElement(rec) {
-    var postCat = document.createElement('a');
-    postCat.href = "index.html?cat_id=" + rec.cat_id;
+    // create a post by calling functions.
 
-    var postElement = document.createElement('div');
-    var title = document.createElement('h3');
-    var dateElement = document.createElement('small');
-    var authorElement = document.createElement('h5');
-    var contentElement = document.createElement('p');
-    var postImageElement = document.createElement('img');
-    
-
-    var postCommentCountElement = document.createElement('small');
+    var postTitle = createPostTitle(rec);
+    var postAuthor = createPostAuthor(rec);
+    var postDate = createPostDate(rec);
+    var postImg = createPostImage(rec);
+    var postContent = createPostContent(rec);
 
 
-    postCat.text = rec.cat_title;
-    title.textContent = rec.post_title;
-    authorElement.textContent = rec.post_author;
-    dateElement.textContent = new Date(rec.post_date);
-    postImageElement.classList.add('img-fluid');
-    postImageElement.src = 'imgs/' + rec.post_image;
-    
+    // append these to a post container div
+    container.appendChild(postTitle);
+    container.appendChild(postAuthor);
+    container.appendChild(postDate);
 
-    contentElement.textContent = rec.post_content;
-    postCommentCountElement.textContent = rec.post_comment_count;
+    // add an hr
+    container.appendChild(createHR());
 
-    postElement.appendChild(postCat);
-    postElement.appendChild(title);
-    postElement.appendChild(authorElement);
-    postElement.appendChild(dateElement);
-    postElement.appendChild(postImageElement);
-    postElement.appendChild(postCommentCountElement);
-    postElement.appendChild(contentElement);
+    // add Image
 
-    container.appendChild(postElement);
-    container.appendChild(document.createElement('hr'));
+    container.appendChild(postImg);
+
+    container.appendChild(createHR());
+
+    container.appendChild(postContent);
+
 }
 
 
 
-// for(var i = 0 ; i < posts.length ; i++) {
-//     var postElement = document.createElement('div');
-//     var header = document.createElement('h3');
-//     var authorElement = document.createElement('small');
-//     var contentElement = document.createElement('p');
 
-//     header.textContent = posts[i].title;
-//     authorElement.textContent = posts[i].author;
-//     contentElement.textContent = posts[i].content;
 
-//     postElement.appendChild(header);
-//     postElement.appendChild(authorElement);
-//     postElement.appendChild(contentElement);
+// functions to create a post
+function createPostTitle(rec) {
+    var postTitle = document.createElement('h2');
+    var titleLink = document.createElement('a');
+    titleLink.text = rec.post_title;
+    titleLink.href = URL + '/post/' + rec.post_id;
+    postTitle.appendChild(titleLink);
 
-//     container.appendChild(postElement);
-//     container.appendChild(document.createElement('hr'));
-// }
+    return postTitle;
+}
+
+
+function createPostAuthor(rec) {
+    var authorPElement = document.createElement('p');
+    authorPElement.classList.add('lead');
+    authorPElement.textContent = 'by ';
+
+    var authorLink = document.createElement('a');
+    authorLink.text = rec.post_author;
+    authorLink.href = URL;
+
+    authorPElement.appendChild(authorLink);
+
+    return authorPElement;
+}
+
+
+function createPostDate(rec) {
+    var datePElement = document.createElement('p');
+    var dateSpanElement = document.createElement('span');
+    dateSpanElement.classList.add('glyphicon');
+    dateSpanElement.classList.add('glyphicon-time');
+
+    datePElement.appendChild(dateSpanElement);
+    datePElement.textContent = new Date(rec.post_date);
+
+    return datePElement;
+}
+
+
+function createPostImage(rec) {
+    // Add an hr
+    var postImage = document.createElement('img');
+    postImage.classList.add('img-fluid');
+    postImage.src = 'imgs/' + rec.post_image;
+    postImage.alt = 'POST IMAGE';
+
+    return postImage;
+}
+
+
+function createPostContent(rec) {
+    var postContent = document.createElement('p');
+
+    postContent.textContent = rec.post_content;
+    return postContent;
+}
+
+
+function createHR() {
+    return document.createElement('hr');
+}
+
+/*
+
+
+                <h2>
+                    <a href="post.php?p_id=<?php echo $post_id; ?>"><?php echo $post_title ?></a>
+                </h2>
+                <p class="lead">
+                    by <a href="index.php"><?php echo $post_author ?></a>
+                </p>
+                <p><span class="glyphicon glyphicon-time"></span> <?php echo $post_date ?></p>
+                <hr>
+                <img class="img-responsive" src="images/<?php echo $post_image ?>" alt="">
+                <hr>
+                <p><?php echo $post_content ?></p>
+
+                <hr>
+
+
+
+*/
