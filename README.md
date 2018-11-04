@@ -4,10 +4,10 @@
 - [x] Display the categories from database in navbar.
 - [x] Get Posts From Database and Display it on Client Side.
 - [x] Show Latest Posts First
-- [ ] Apply Styling to the posts.
-- [ ] Add Side bar to the home page.
-- [ ] Display Categoris in sidebar.
-- [ ] Display a login form inside the sidebar.
+- [x] Apply Styling to the posts.
+- [x] Add Side bar to the home page.
+- [x] Display Categoris in sidebar.
+- [x] Display a login form inside the sidebar.
 - [ ] Get Posts For a Specific Category when user clicks on Category link on a post. 
 - [ ] Go To a Specific Post when user clicks on its title.
 - [ ] Show Comments on a posts.

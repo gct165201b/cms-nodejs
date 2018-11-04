@@ -5,6 +5,11 @@ var container = document.querySelector('#post-container');
 // select the navbar-nav
 var navbarNav = document.querySelector('#navigation');
 
+
+// select sidebar categories portion
+
+var sidebarCat = document.querySelector('#sidebar-cat');
+console.log(sidebarCat);
 // console.log(navbarNav);
 
 // Make a Get Request for posts against this URL
@@ -26,6 +31,7 @@ function listAllCategories() {
         result.forEach(cat => {
             // console.log(cat);s
             createListElement(cat);
+            createSideBarListElement(cat);
         });
     });
 }
@@ -56,19 +62,51 @@ function listAllPosts() {
 function createListElement(cat) {
 
     var li = document.createElement('li');
-    li.classList.add('nav-item');
+    
 
     // create the link
     var a = document.createElement('a');
     a.classList.add('nav-link');
     a.text = cat.cat_title;
-    a.href = '#';
+    a.href = URL + '/nav/' + cat.cat_id;
 
 
     li.appendChild(a);
 
+
+    
+
+    li.classList.add('nav-item');
     navbarNav.appendChild(li);
 
+    // li.classList.remove('nav-item');
+
+    // sidebarCat.appendChild(li);
+
+}
+
+
+
+
+
+function createSideBarListElement(cat) {
+    var li = document.createElement('li');
+    
+
+    // create the link
+    var a = document.createElement('a');
+    
+    a.text = cat.cat_title;
+    a.href = URL + '/nav/' + cat.cat_id;
+
+
+    li.appendChild(a);
+
+
+    sidebarCat.appendChild(li);
+
+
+    
 }
 
 
