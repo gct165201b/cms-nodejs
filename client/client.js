@@ -9,8 +9,10 @@ var navbarNav = document.querySelector('#navigation');
 // select sidebar categories portion
 
 var sidebarCat = document.querySelector('#sidebar-cat');
-console.log(sidebarCat);
+// console.log(sidebarCat);
 // console.log(navbarNav);
+
+
 
 // Make a Get Request for posts against this URL
 
@@ -55,6 +57,11 @@ function listAllPosts() {
 }
 
 
+// this function will list all posts related to a single category.
+
+
+
+
 
 // Create List Element for the navigation menu.
 // <li><a href='category.html?category=$cat_id'></a></li>
@@ -67,8 +74,14 @@ function createListElement(cat) {
     // create the link
     var a = document.createElement('a');
     a.classList.add('nav-link');
+    // a.classList.add('category-link'); Not working for some reason.
     a.text = cat.cat_title;
     a.href = URL + '/nav/' + cat.cat_id;
+
+
+
+
+    addEventsToCategoryLinks(a);
 
 
     li.appendChild(a);
@@ -95,11 +108,12 @@ function createSideBarListElement(cat) {
 
     // create the link
     var a = document.createElement('a');
-    
+    // a.classList.add('category-link');
     a.text = cat.cat_title;
     a.href = URL + '/nav/' + cat.cat_id;
 
-
+    addEventsToCategoryLinks(a);
+    
     li.appendChild(a);
 
 
@@ -228,3 +242,14 @@ function createHR() {
 
 
 */
+
+
+
+// ADD EVENTS TO ELEMENTS
+
+
+function addEventsToCategoryLinks(a) {
+    a.addEventListener('click' , (event) => {
+        event.preventDefault();
+    });
+}
