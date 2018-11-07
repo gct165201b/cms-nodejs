@@ -8,6 +8,6 @@
 - [x] Add Side bar to the home page.
 - [x] Display Categoris in sidebar.
 - [x] Display a login form inside the sidebar.
-- [ ] Get Posts For a Specific Category when user clicks on Title link of a post. 
+- [x] Get Posts For a Specific Category when user clicks on Title link of a post. 
 - [ ] Go To a Specific Post when user clicks on its title.
 - [ ] Show Comments on a posts.

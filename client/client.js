@@ -40,8 +40,13 @@ function listAllCategories() {
 
 
 // Function that will list all posts in page
-listAllPosts();
-function listAllPosts() {
+listAllPosts(URL);
+function listAllPosts(URL) {
+
+
+    // clear the element before bringing in new posts
+
+    container.innerHTML = '';
 
     // make a get request
 
@@ -128,7 +133,9 @@ function createSideBarListElement(cat) {
 
 
 function createPostElement(rec) {
+
     // create a post by calling functions.
+
 
     var postTitle = createPostTitle(rec);
     var postAuthor = createPostAuthor(rec);
@@ -250,6 +257,9 @@ function createHR() {
 
 function addEventsToCategoryLinks(a) {
     a.addEventListener('click' , (event) => {
-        event.preventDefault();
+        event.preventDefault(); // prevent the default action.
+
+        // make a  get request.
+        listAllPosts(a.href);
     });
 }

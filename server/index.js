@@ -64,6 +64,18 @@ app.get('/nav', (req, res) => {
 
 
 
+// listen for request and list all the post related to category whose id is passed in as request parameter
+
+app.get('/nav/:cat_id', (req, res) => {
+    var sql = 'SELECT * FROM posts WHERE post_category_id = ' + req.params.cat_id;
+    database.query(sql, (err, result) => {
+        // console.log(result);
+
+        res.json(result);
+    });
+});
+
+
 
 
 // listen for requests at port 5000
