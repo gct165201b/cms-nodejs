@@ -15,14 +15,6 @@
 - [x] Create some elements.
 - [x] Display Categoris in sidebar.
 
-## Posts for Specific Category
-- [x] Add Event Listeners to all the navigation category links and sidebar category links.
-- [x] Prevent the link from its default action.
-- [x] Then make a get request and pass in the id of category inside the URL as request parameter.
-- [x] Handle the request on server side.
-- [x] Get all the posts for the category whose id was passed into URL as Request Parameter.
-- [x] Clear the page before bringing new posts to the page in the listAllPost(URL) function.
-
 ## Posts
 - [x] Make a get request to the node server while loading page.
 - [x] Handle the get request for post on server.js.
@@ -32,6 +24,14 @@
 - [x] Fill in the commponents using post data returned from server
 - [x] Show Latest Posts First
 - [x] Apply Styling to the posts.
+
+## Posts for Specific Category
+- [x] Add Event Listeners to all the navigation category links and sidebar category links.
+- [x] Prevent the link from its default action.
+- [x] Then make a get request and pass in the id of category inside the URL as request parameter.
+- [x] Handle the request on server side.
+- [x] Get all the posts for the category whose id was passed into URL as Request Parameter.
+- [x] Clear the page before bringing new posts to the page in the listAllPost(URL) function.
 
 ## Get A Specific Post
 - [ ] Go To a Specific Post when user clicks on its title.
