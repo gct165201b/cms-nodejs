@@ -1,4 +1,5 @@
 # CMS Using Node JS
+## Categories
 - [x] Get Categories from database.
 - [x] Manipulate the bootstrap navbar.
 - [x] Display the categories from database in navbar.
