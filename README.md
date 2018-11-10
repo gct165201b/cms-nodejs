@@ -35,6 +35,8 @@
 
 ## Get A Specific Post
 - [ ] Go To a Specific Post when user clicks on its title.
+- [ ] Add Event Listener to the title of every post.
+- [ ] Prevent the default action.
 - [ ] Make a Get request to a url that contains the id of the post.
 - [ ] Handle the request on server side.
 - [ ] Quesry database.
