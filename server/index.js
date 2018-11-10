@@ -69,12 +69,24 @@ app.get('/nav', (req, res) => {
 app.get('/nav/:cat_id', (req, res) => {
     var sql = 'SELECT * FROM posts WHERE post_category_id = ' + req.params.cat_id;
     database.query(sql, (err, result) => {
+        if(err) throw err;
         // console.log(result);
 
         res.json(result);
     });
 });
 
+
+// listen for request and return the detailed form of the post whose ID was passed in as request parameter.
+
+app.get('/post/:post_id', (req, res) => {
+    var sql = 'SELECT * FROM posts WHERE post_id=' + req.params.post_id;
+    database.query(sql, (err, result) => {
+        if(err) throw err;
+
+        res.json(result);
+    });
+});
 
 
 

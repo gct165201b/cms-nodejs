@@ -34,16 +34,16 @@
 - [x] Clear the page before bringing new posts to the page in the listAllPost(URL) function.
 
 ## Get A Specific Post
-- [ ] Go To a Specific Post when user clicks on its title.
-- [ ] Add Event Listener to the title of every post.
-- [ ] Prevent the default action.
-- [ ] Make a Get request to a url that contains the id of the post.
-- [ ] Handle the request on server side.
-- [ ] Quesry database.
-- [ ] Get the post.
-- [ ] Return the result in JSON Format as response to the request.
-- [ ] Create Post Elements On Client side.
-- [ ] Populate these components using post data.
+- [x] Go To a Specific Post when user clicks on its title.
+- [x] Add Event Listener to the title of every post.
+- [x] Prevent the default action.
+- [x] Make a Get request to a url that contains the id of the post.
+- [x] Handle the request on server side.
+- [x] Quesry database.
+- [x] Get the post.
+- [x] Return the result in JSON Format as response to the request.
+- [x] Create Post Elements On Client side.
+- [x] Populate these components using post data.
 
 ## Comment Section on a Post
 - [ ] Create Comment Section.

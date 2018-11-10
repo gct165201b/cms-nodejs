@@ -172,6 +172,12 @@ function createPostTitle(rec) {
     var titleLink = document.createElement('a');
     titleLink.text = rec.post_title;
     titleLink.href = URL + '/post/' + rec.post_id;
+
+    // Atatch an Event Listener to the Title of the post.
+
+    addEventsToPostTitles(titleLink);
+
+
     postTitle.appendChild(titleLink);
 
     return postTitle;
@@ -260,6 +266,15 @@ function addEventsToCategoryLinks(a) {
         event.preventDefault(); // prevent the default action.
 
         // make a  get request.
+        listAllPosts(a.href);
+    });
+}
+
+function addEventsToPostTitles(a) {
+    a.addEventListener('click', (event) => {
+        event.preventDefault(); // prevent the default action.
+
+        // make a get request and then display the post.
         listAllPosts(a.href);
     });
 }
