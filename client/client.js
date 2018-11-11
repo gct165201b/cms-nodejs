@@ -86,7 +86,7 @@ function createListElement(cat) {
 
 
 
-    addEventsToCategoryLinks(a);
+    addEventsLinks(a);
 
 
     li.appendChild(a);
@@ -117,7 +117,7 @@ function createSideBarListElement(cat) {
     a.text = cat.cat_title;
     a.href = URL + '/nav/' + cat.cat_id;
 
-    addEventsToCategoryLinks(a);
+    addEventsLinks(a);
     
     li.appendChild(a);
 
@@ -175,7 +175,7 @@ function createPostTitle(rec) {
 
     // Atatch an Event Listener to the Title of the post.
 
-    addEventsToPostTitles(titleLink);
+    addEventsLinks(titleLink);
 
 
     postTitle.appendChild(titleLink);
@@ -261,7 +261,7 @@ function createHR() {
 // ADD EVENTS TO ELEMENTS
 
 
-function addEventsToCategoryLinks(a) {
+function addEventsLinks(a) {
     a.addEventListener('click' , (event) => {
         event.preventDefault(); // prevent the default action.
 
@@ -270,11 +270,11 @@ function addEventsToCategoryLinks(a) {
     });
 }
 
-function addEventsToPostTitles(a) {
-    a.addEventListener('click', (event) => {
-        event.preventDefault(); // prevent the default action.
+// function addEventsToPostTitles(a) {
+//     a.addEventListener('click', (event) => {
+//         event.preventDefault(); // prevent the default action.
 
-        // make a get request and then display the post.
-        listAllPosts(a.href);
-    });
-}
+//         // make a get request and then display the post.
+//         listAllPosts(a.href);
+//     });
+// }
