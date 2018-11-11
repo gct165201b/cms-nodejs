@@ -40,6 +40,8 @@ function listAllCategories() {
 
 
 // Function that will list all posts in page
+// And will display a comment section when this is called with localhost/post/:post_id URL
+// The server will return a comment section as an object which will be appended at the end of the json array returned from server.
 listAllPosts(URL);
 function listAllPosts(URL) {
 
@@ -53,7 +55,9 @@ function listAllPosts(URL) {
     fetch(URL)
     .then(response => response.json())
     .then(result => {
+        // console.log(result);
         result.forEach(rec => {
+            
             createPostElement(rec);
         });
     });
