@@ -46,8 +46,8 @@
 - [x] Populate these components using post data.
 
 ## Comment Section on a Post
-- [ ] Create Comment Section.
-- [ ] Create Some fields.
+- [x] Create Comment Section.
+- [x] Create Some fields.
 
 ## Show Comments on a posts
 - [ ] Make a  get request to the server for comments on a post.

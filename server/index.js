@@ -85,6 +85,7 @@ app.get('/post/:post_id', (req, res) => {
         if(err) throw err;
 
         res.json(result);
+        
     });
 });
 

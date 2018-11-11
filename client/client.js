@@ -12,6 +12,12 @@ var sidebarCat = document.querySelector('#sidebar-cat');
 // console.log(sidebarCat);
 // console.log(navbarNav);
 
+// comment container
+
+
+var commentContainer = document.querySelector('#comment-container');
+
+
 
 
 // Make a Get Request for posts against this URL
@@ -50,16 +56,28 @@ function listAllPosts(URL) {
 
     container.innerHTML = '';
 
+
+    // hide the comment container by default.
+
+    commentContainer.style.display = 'none';
+
     // make a get request
 
     fetch(URL)
     .then(response => response.json())
     .then(result => {
         // console.log(result);
+
+
+        // show the comment field if the json result has only single post in it.
         result.forEach(rec => {
             
             createPostElement(rec);
         });
+
+        if(result.length === 1) {
+            showCommentSection(); // create a comment section if only a single post is found inside the json array.
+        }
     });
 
 
@@ -259,6 +277,15 @@ function createHR() {
 
 
 */
+
+
+
+// comment section
+
+
+function showCommentSection() {
+    commentContainer.style.display = '';
+}
 
 
 
