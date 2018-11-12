@@ -1,5 +1,7 @@
 # CMS Using Node JS
 
+# Steps by Step Guide:
+
 ## Categories In Navigation Menu
 - [x] Make a get Request to node server.
 - [x] Handle the request for All Categories on server.js
@@ -55,3 +57,12 @@
 - [ ] Return all comments on that specific post.
 - [ ] Create some Elements on Client side.
 - [ ] Populate these fields using Comments.
+
+## Create Search Engin for Blog.
+- [ ] Add Event Listener to the search button.
+- [ ] Prevent the default action.
+- [ ] Make a get request to node server.
+- [ ] Handle the request on server side.
+- [ ] Query the database.
+- [ ] Return the post data in JSON format.
+- [ ] Display the posts.
