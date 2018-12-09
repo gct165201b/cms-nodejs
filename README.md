@@ -51,6 +51,10 @@
 - [x] Create Comment Section.
 - [x] Create Some fields.
 
+
+## Function to Create HTML Components
+- [ ] Create Function to create div,anchors, h1 etc with corresponding attributes passed as parameters. 
+
 ## Show Comments on a posts
 - [ ] Make a  get request to the server for comments on a post.
 - [ ] Handle the request on server side.

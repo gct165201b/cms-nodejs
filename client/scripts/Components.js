@@ -1,33 +1,32 @@
+
+
+function create(tag, className = '' , href = '', text = '') {
+    var comp = document.createElement(tag);
+
+    if(className != '') {
+        comp.classList.add(className);
+    }
+    
+
+
+    comp.textContent = text;
+
+    if(href != '') {
+        comp.href = href;
+        comp.text = text;
+    }
+
+    return comp;
+}
+
+
 function createListElement(cat) {
 
-    var li = document.createElement('li');
-    
-
-    // create the link
-    var a = document.createElement('a');
-    a.classList.add('nav-link');
-    // a.classList.add('category-link'); Not working for some reason.
-    a.text = cat.cat_title;
-    a.href = URL + '/nav/' + cat.cat_id;
-
-
-
-
+    var li = create('li', 'nav-item');
+    var a = create('a', 'nav-link', URL + '/nav/' + cat.cat_id , cat.cat_title);
     addEventsLinks(a);
-
-
     li.appendChild(a);
-
-
-    
-
-    li.classList.add('nav-item');
     navbarNav.appendChild(li);
-
-    // li.classList.remove('nav-item');
-
-    // sidebarCat.appendChild(li);
-
 }
 
 
@@ -35,24 +34,17 @@ function createListElement(cat) {
 
 
 function createSideBarListElement(cat) {
-    var li = document.createElement('li');
     
+    var li = create('li');
 
-    // create the link
-    var a = document.createElement('a');
-    // a.classList.add('category-link');
-    a.text = cat.cat_title;
-    a.href = URL + '/nav/' + cat.cat_id;
-
+    var a = create('a', '', URL + '/nav/' + cat.cat_id, cat.cat_title);
+    
     addEventsLinks(a);
     
     li.appendChild(a);
 
-
     sidebarCat.appendChild(li);
 
-
-    
 }
 
 
@@ -95,15 +87,10 @@ function createPostElement(rec) {
 
 // functions to create a post
 function createPostTitle(rec) {
-    var postTitle = document.createElement('h2');
-    var titleLink = document.createElement('a');
-    titleLink.text = rec.post_title;
-    titleLink.href = URL + '/post/' + rec.post_id;
-
-    // Atatch an Event Listener to the Title of the post.
+    var postTitle = create('h2');
+    var titleLink = create('a', '', URL + '/post/' + rec.post_id, rec.post_title);
 
     addEventsLinks(titleLink);
-
 
     postTitle.appendChild(titleLink);
 
@@ -112,13 +99,9 @@ function createPostTitle(rec) {
 
 
 function createPostAuthor(rec) {
-    var authorPElement = document.createElement('p');
-    authorPElement.classList.add('lead');
-    authorPElement.textContent = 'by ';
+    var authorPElement = create('p', 'lead', '' , 'by ');
 
-    var authorLink = document.createElement('a');
-    authorLink.text = rec.post_author;
-    authorLink.href = URL;
+    var authorLink = create('a', '', URL , rec.post_author);
 
     authorPElement.appendChild(authorLink);
 
@@ -127,13 +110,12 @@ function createPostAuthor(rec) {
 
 
 function createPostDate(rec) {
-    var datePElement = document.createElement('p');
-    var dateSpanElement = document.createElement('span');
-    dateSpanElement.classList.add('glyphicon');
+    var datePElement = create('p', '', '', , new Date(rec.post_date));
+    var dateSpanElement = create('span', 'glyphicon');
     dateSpanElement.classList.add('glyphicon-time');
 
     datePElement.appendChild(dateSpanElement);
-    datePElement.textContent = new Date(rec.post_date);
+    
 
     return datePElement;
 }
@@ -190,6 +172,49 @@ function createHR() {
 
 function showCommentSection() {
     commentContainer.style.display = '';
+}
+
+
+
+
+
+
+// create HTML elements for posted comments.
+
+
+
+/*
+
+
+                STRUCTURE FOR POSTED COMMENT
+
+                <div class="media">
+                    <a class="pull-left" href="#">
+                        <img class="media-object" src="http://placehold.it/64x64" alt="">
+                    </a>
+                    <div class="media-body">
+                        <h4 class="media-heading"><?php echo $comment_author; ?>
+                            <small><?php echo $comment_date; ?></small>
+                        </h4>
+                        
+                        
+                        <?php echo $comment_content; ?>
+                        
+                        
+                    </div>
+                </div>
+
+
+*/
+
+
+
+
+
+
+
+function createCommentArea() {
+    
 }
 
 
